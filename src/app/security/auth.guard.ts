@@ -15,16 +15,16 @@ export class AuthGuard implements CanActivate {
         let auth = this.securityService.auth;
         let isAuthorized: boolean = auth[claimType as keyof UserAuth] as boolean;
 
-        if (auth.isAuthenticated && isAuthorized) {
-            if(claimType = "isAuthenticated"){
-                return false;
+        if (claimType === "isAuthenticated") {
+            if (!auth.isAuthenticated) {
+                return true;
             }
+            return false;
+        }
+        if (auth.isAuthenticated && isAuthorized) {
             return true;
         }
         else {
-            if(claimType = "isAuthenticated"){
-                return true;
-            }
             this.router.navigate([""])
             return false;
         }

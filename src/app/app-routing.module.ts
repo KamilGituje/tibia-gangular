@@ -14,7 +14,7 @@ import { WelcomeComponent } from "./welcome.component";
 
 const routes: Routes = [
     { path: "", component: WelcomeComponent, pathMatch: "full"},
-    { path: "playgame", component: PlayGameComponent, canActivate: [AuthGuard], data: {claimType: "canAccessExp"} },
+    { path: "playgame", component: PlayGameComponent, canActivate: [AuthGuard], data: {claimType: "CanAccessExp"} },
     { path: "game", component: GameComponent },
     { path: "exp", component: ExpComponent },
     { path: "backpack", component: BackpackComponent},
