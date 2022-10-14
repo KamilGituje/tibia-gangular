@@ -1,0 +1,14 @@
+<div class="flex">
+    <div>
+        <div class="form-title">Wybierz NPC:</div>
+        <ul class="list-group narrow">
+            <li class="list-group-item narrow" [ngClass]="{'active': npcId === npc.npcId}" id="npc{{npc.npcId}}" *ngFor="let npc of npcs" (click)="onClickNpc(npc.npcId)">{{npc.name}}</li>
+        </ul>
+    </div>
+    <div *ngIf="npcId">
+        <div class="form-title">Sprzedaj item:</div>
+        <ul class="list-group narrow">
+            <li class="list-group-item narrow" *ngFor="let item of items" (click)="onClickItem(item.itemId, item.name)">{{item.name}} ({{item.price}})</li>
+        </ul>
+    </div>
+</div>

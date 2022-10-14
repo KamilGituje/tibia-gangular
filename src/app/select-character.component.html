@@ -1,0 +1,10 @@
+<form *ngIf="!wrongId">
+    <div class="form-title">Masz pitka? Lognij się!</div><br>
+    <div class="mb-3">
+        <ul class="list-group narrow">
+            <li class="list-group-item narrow" *ngFor="let character of characters" (click)="onSubmit(character.characterId)">
+                {{character.name}}
+            </li>
+        </ul>
+    </div>
+</form>

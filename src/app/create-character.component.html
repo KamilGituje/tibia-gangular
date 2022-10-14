@@ -1,0 +1,41 @@
+<form *ngIf="!submitted">
+  <div class="form-title">Wprowadź dane</div>
+  <div class="mb-3">
+    <label class="form-label">Nick</label>
+    <input class="form-control" id="name" [(ngModel)]="character.name" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Profesja</label>
+    <select id="vocation" class="form-select" [(ngModel)]="character.vocation" [ngModelOptions]="{standalone: true}">
+      <option>Knight z Vestii</option>
+      <option>Palek</option>
+      <option>Drut</option>
+      <option>Sorc</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Miasto</label>
+    <select id="residence" class="form-select" [(ngModel)]="character.residence" [ngModelOptions]="{standalone: true}">
+      <option>Thais</option>
+      <option>Venore</option>
+      <option>Carlin</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Gildia</label>
+    <input class="form-control" id="guild" [(ngModel)]="character.guild" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="pacc">
+    <label class="form-check-label">Chcesz paka?</label>
+  </div>
+  <button type="submit" class="btn btn-primary no-trans to-bottom" (click)="onSubmit()">Stwórz</button>
+</form>
+<div *ngIf="submitted">
+  <div class="form-title">Stworzono pitka:</div>
+  <div class="content">Numer: {{characterResponse.characterId}}</div>
+  <div class="content">Nick: {{characterResponse.name}}</div>
+  <div class="content">Profesja: {{characterResponse.vocation}}</div>
+  <div class="content">Miasto: {{characterResponse.residence}}</div>
+  <div class="content">Gildia: {{characterResponse.guild}}</div>
+</div>

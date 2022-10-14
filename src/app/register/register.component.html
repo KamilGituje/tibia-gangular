@@ -1,0 +1,12 @@
+<form>
+    <div class="form-title">Wprowadź dane nowego konta:</div>
+    <div class="mb-3">
+        <label class="form-label">Login</label>
+        <input class="form-control" [(ngModel)]="userForRegister.userName" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Hasło</label>
+        <input class="form-control" [(ngModel)]="userForRegister.password" [ngModelOptions]="{standalone: true}">
+    </div>
+    <button type="submit" class="btn btn-primary no-trans to-bottom" (click)="onSubmit()">Zarejestruj się</button>
+</form>
