@@ -11,9 +11,9 @@ export class AuthGuard implements CanActivate {
     constructor(private securityService: SecurityService, private router: Router) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-        let claimType: string = route.data["claimType"];
-        let auth = this.securityService.auth;
-        let isAuthorized: boolean = auth[claimType as keyof UserAuth] as boolean;
+        const claimType: string = route.data["claimType"];
+        const auth = this.securityService.auth;
+        const isAuthorized: boolean = auth[claimType as keyof UserAuth] as boolean;
 
         if (claimType === "isAuthenticated") {
             if (!auth.isAuthenticated) {

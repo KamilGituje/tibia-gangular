@@ -1,5 +1,4 @@
 import { Component } from "@angular/core"
-import { Subscription } from "rxjs";
 import { SecurityService } from "../security/security.service";
 import { UserForLoginAndRegister } from "../security/user-for-login-and-register"
 
@@ -10,9 +9,8 @@ import { UserForLoginAndRegister } from "../security/user-for-login-and-register
 export class RegisterComponent{
     constructor(private securityService: SecurityService){}
     userForRegister:UserForLoginAndRegister = new UserForLoginAndRegister();
-    sub: Subscription;
 
     onSubmit(){
-        this.sub = this.securityService.createUser(this.userForRegister).subscribe();
+        this.securityService.createUser(this.userForRegister).subscribe();
     }
 }

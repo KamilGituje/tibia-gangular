@@ -7,8 +7,4 @@ export class UserAuth {
     canAccessExp: boolean;
     canAccessSell: boolean;
     canAccessBackpack: boolean;
-
-    getValueOfProperty(obj: any, key: string): boolean{
-        return obj[key]
-    }
 }

@@ -14,13 +14,12 @@ export class LoginComponent {
     constructor(private securityService: SecurityService, private router: Router) { }
 
     userForLogin: UserForLoginAndRegister = new UserForLoginAndRegister();
-    sub: Subscription;
     auth: UserAuth = new UserAuth();
     decodedAuthObject: any;
 
     onSubmit() {
         this.securityService.auth = new UserAuth();
-        this.sub = this.securityService.login(this.userForLogin).subscribe({
+        this.securityService.login(this.userForLogin).subscribe({
             next: r => {
                 this.decodedAuthObject = jwtDecode<any>(r);
                 this.auth = this.decodedAuthObject;
@@ -32,10 +31,5 @@ export class LoginComponent {
                 this.router.navigate([""]);
             }
         });
-    }
-    ngOnDestroy() {
-        if (this.sub) {
-            this.sub.unsubscribe();
-        }
     }
 }

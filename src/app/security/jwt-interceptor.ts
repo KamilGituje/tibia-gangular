@@ -11,7 +11,7 @@ export class JwtInterceptor implements HttpInterceptor {
     constructor(private securityService: SecurityService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        let auth: UserAuth = this.securityService.auth;
+        const auth: UserAuth = this.securityService.auth;
 
         if (auth.isAuthenticated) {
             req = req.clone({

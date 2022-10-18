@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UserAuth } from './security/app-user-auth';
 import { SecurityService } from './security/security.service';
 
 @Component({
@@ -9,6 +8,14 @@ import { SecurityService } from './security/security.service';
 })
 export class AppComponent {
   constructor(public securityService: SecurityService) { }
+  ngOnInit() {
+    if (!this.isAuthenticated()) {
+      const authStorage = localStorage.getItem("AuthObject");
+      if (authStorage) {
+        this.securityService.auth = JSON.parse(authStorage);
+      }
+    }
+  }
 
   pageTitle: string = "Tibijka boża";
 
@@ -20,13 +27,5 @@ export class AppComponent {
   }
   getUserName(): string {
     return this.securityService.auth.userName;
-  }
-  ngOnInit() {
-    if (!this.isAuthenticated()) {
-      let authStorage = localStorage.getItem("AuthObject");
-      if (authStorage) {
-        this.securityService.auth = JSON.parse(authStorage);
-      }
-    }
   }
 }

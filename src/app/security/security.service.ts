@@ -1,7 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import jwtDecode from "jwt-decode";
-import { BehaviorSubject, Observable, tap } from "rxjs";
+import { Observable } from "rxjs";
+import { ApiPaths } from "src/environments/ApiPaths";
+import { environment } from "src/environments/environment";
 import { UserAuth } from "./app-user-auth";
 import { UserForLoginAndRegister } from "./user-for-login-and-register";
 
@@ -14,16 +15,16 @@ export class SecurityService {
 
     auth: UserAuth = new UserAuth();
 
-    securityUrl = "https://localhost:7107/api/security";
+    baseUrl = environment.baseUrl;
 
     login(user: UserForLoginAndRegister): Observable<string> {
-        return this.http.put(`${this.securityUrl}/login`, user, { responseType: "text" })
+        return this.http.put(`${this.baseUrl}/${ApiPaths.security}/login`, user, { responseType: "text" })
     }
     createUser(user: UserForLoginAndRegister): Observable<string> {
-        return this.http.post(`${this.securityUrl}/register`, user, { responseType: "text" })
+        return this.http.post(`${this.baseUrl}/${ApiPaths.security}/register`, user, { responseType: "text" })
     }
     logout() {
         this.auth = new UserAuth();
-        localStorage.removeItem("AuthObject");
+        localStorage.clear();
     }
 }

@@ -1,6 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { ApiPaths } from "src/environments/ApiPaths";
+import { environment } from "src/environments/environment";
 import { Monster } from "./monster";
 
 @Injectable({
@@ -9,9 +11,9 @@ import { Monster } from "./monster";
 export class MonsterService{
     constructor(private http: HttpClient){}
 
-    private monstersUrl = "https://localhost:7107/api/monsters";
+    private baseUrl = environment.baseUrl;
 
     getMonsters(): Observable<Monster[]>{
-        return this.http.get<Monster[]>(this.monstersUrl);
+        return this.http.get<Monster[]>(`${this.baseUrl}/${ApiPaths.monster}`);
     }
 }

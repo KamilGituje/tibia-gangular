@@ -2,7 +2,7 @@
     <div>
         <div class="form-title">Wybierz NPC:</div>
         <ul class="list-group narrow">
-            <li class="list-group-item narrow" [ngClass]="{'active': npcId === npc.npcId}" id="npc{{npc.npcId}}" *ngFor="let npc of npcs" (click)="onClickNpc(npc.npcId)">{{npc.name}}</li>
+            <li class="list-group-item narrow" [ngClass]="{'active': npcId === npc.npcId}" *ngFor="let npc of npcs" (click)="onClickNpc(npc.npcId)">{{npc.name}}</li>
         </ul>
     </div>
     <div *ngIf="npcId">
