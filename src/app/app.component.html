@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand" routerLink="/">Tibijka boża</a>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/playgame" *ngIf="isAuthenticated()">Zagraj w gierkę<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/highscores">Highscores</a>
+      </li>
+      <ul class="to-right navbar-nav mr-auto" *ngIf="!isAuthenticated()">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Zaloguj się</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/register">Zarejestruj się</a>
+        </li>
+      </ul>
+      <ul class="to-right navbar-nav mr-auto" *ngIf="isAuthenticated()">
+        <li class="nav-item to-right">
+          <a class="nav-link" routerLink="/" (click)="logout()">Logout <a
+              class="white">{{getUserName()}}</a></a>
+        </li>
+      </ul>
+    </ul>
+  </div>
+</nav>
+<body>
+  <div class="container pers">
+    <router-outlet></router-outlet>
+  </div>
+
+</body>

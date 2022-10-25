@@ -1,0 +1,18 @@
+<div class="flex">
+    <div>
+        <div class="form-title">Zlej moba:</div>
+        <ul class="list-group narrow">
+            <li class="list-group-item narrow" *ngFor="let monster of monsters" (click)="onClick(monster)">
+                {{monster.name}}
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="loot">
+        <div class="form-title">Loocik:</div>
+        <ul class="list-group narrow">
+            <li class="list-group-item narrow" [ngClass]="{'too-heavy': item.itemId === 0}" *ngFor="let item of loot">
+                {{item.name}}
+            </li>
+        </ul>
+    </div>
+</div>

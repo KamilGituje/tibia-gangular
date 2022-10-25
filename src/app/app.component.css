@@ -1,0 +1,47 @@
+.nav-link:hover{
+    color:white;
+}
+.nav-link{
+    color:gray;
+}
+.navbar-brand{
+    color:white;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+body > div.pers{
+    border: 1px solid rgb(207, 205, 205);
+    background-color: rgb(223, 211, 211, 0.85);
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 50px;
+    position: absolute;
+    left: 1%;
+    right: 1%;
+}
+body{
+    background-image: url("images/background.jpg");
+    background-size:cover;
+    position:relative;
+    max-width: 100%;
+    max-height: calc(100% - 50px)
+}
+nav{
+    height: 50px;
+    max-width: 100%;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+::ng-deep .mat-snack-bar-container.item-sold{
+    background-color: rgb(106, 175, 109);
+}
+::ng-deep .mat-snack-bar-container{
+    background-color: rgb(230, 68, 68);
+}
+ul.to-right{
+    position: absolute;
+    right: 50px;
+}
+a.white{
+    color:white;
+    text-decoration: none;
+}

@@ -1,0 +1,9 @@
+form{
+    width: 400px;
+    left: 100px;
+    position: relative;
+}
+.form-title{
+    font-size: 20px;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,35 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nick</th>
+        <th scope="col">Level</th>
+        <th scope="col">Vocation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let character of characters; let i = index">
+      <tr *ngIf="i < 10">
+        <th scope="row">{{(i + 1) + ((page - 1) * 10)}}</th>
+        <td>{{character.name}}</td>
+        <td>{{character.lvl}}</td>
+        <td>{{character.vocation}}</td>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+  <nav class="pagination">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" (click)="changePage(page - 1)" *ngIf="page > 1">Poprzednia</a>
+      </li>
+      <li class="page-item"><a class="page-link" (click)="changePage(page - 1)" *ngIf="page > 1">{{page - 1}}</a></li>
+      <li class="page-item active" aria-current="page">
+        <a class="page-link" (click)="changePage(page)">{{page}}</a>
+      </li>
+      <li class="page-item"><a class="page-link" (click)="changePage(page + 1)" *ngIf="characters.length > 10">{{page + 1}}</a></li>
+      <li class="page-item">
+        <a class="page-link" (click)="changePage(page + 1)" *ngIf="characters.length > 10">Następna</a>
+      </li>
+    </ul>
+  </nav>

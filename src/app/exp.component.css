@@ -1,0 +1,20 @@
+li:hover{
+    background-color: rgb(155, 155, 155);
+}
+li.narrow{
+    width: 200px;
+    text-align: center;
+}
+li.list-group-item{
+    cursor: pointer;
+}
+div.flex{
+    display: flex;
+}
+li.too-heavy{
+    background-color: red;
+}
+ul.narrow{
+    width: 200px;
+    margin-right: 30px;
+}
